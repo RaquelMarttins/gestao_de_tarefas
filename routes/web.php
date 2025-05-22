@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CondominioController;
+use App\Http\Controllers\PrestadorController;
+use App\Http\Controllers\TarefaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,5 +29,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('condominios', CondominioController::class);
+Route::resource('tarefas', TarefaController::class);
+Route::resource('prestadores', PrestadorController::class);
+Route::resource('usuarios', UserController::class);
 
 require __DIR__ . '/auth.php';

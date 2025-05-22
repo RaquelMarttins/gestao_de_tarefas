@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Condominio extends Model
+class Prestador extends Model
 {
+    //
     protected $fillable = [
         'nome',
-        'endereco',
-        'responsavel',
-        'contato',
+        'area',
+        'telefone',
+        'email',
+        'observacoes',
     ];
 
     public function tarefas()
