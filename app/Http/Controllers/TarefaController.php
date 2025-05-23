@@ -13,12 +13,9 @@ class TarefaController extends Controller
     public function index()
     {
 
-// return "testando o index";
-
         $tarefas = Tarefa::with('condominio', 'prestador')->get();
 
         return Inertia::render('Tarefas/Index', ['tarefas' => $tarefas]);
-
     }
 
     public function create()
@@ -33,10 +30,10 @@ class TarefaController extends Controller
     {
         Tarefa::create($request->all());
 
-        return redirect()->route('tarefas.index')->with('success','');
+        return redirect()->route('tarefas.index')->with('success', '');
     }
 
-    
+
     public function show(Tarefa $tarefa)
     {
         return Inertia::render('', []);
@@ -46,8 +43,8 @@ class TarefaController extends Controller
     public function edit(Tarefa $tarefa)
     {
         return Inertia::render('Tarefa/Edit', [
-            'tarefa' => $tarefa, 
-            'condominios'=> Condominio::all(), 
+            'tarefa' => $tarefa,
+            'condominios' => Condominio::all(),
             'prestadores' => Prestador::all()
         ]);
     }
@@ -56,13 +53,13 @@ class TarefaController extends Controller
     {
         $tarefa->update($request->all());
 
-        return redirect()->route('tarefas.index')->with('success','');
+        return redirect()->route('tarefas.index')->with('success', '');
     }
 
     public function destroy(Tarefa $tarefa)
     {
         $tarefa->delete();
-        
-        return redirect()->route('tarefas.index')->with('success','');
+
+        return redirect()->route('tarefas.index')->with('success', '');
     }
 }

@@ -7,6 +7,20 @@ export interface User {
     email_verified_at?: string;
 }
 
+export interface Condominio {
+    nome: string;
+}
+
+export interface Tarefa {
+    id: number;
+    descricao: string;
+    data_manutencao: string;
+    prazo_meses: number;
+    prioridade: string;
+    status: string;
+    condominio?: Condominio;
+}
+
 export type PageProps<
     T extends Record<string, unknown> = Record<string, unknown>,
 > = T & {
