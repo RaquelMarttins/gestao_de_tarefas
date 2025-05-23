@@ -12,16 +12,20 @@ class TarefaController extends Controller
 {
     public function index()
     {
+
+// return "testando o index";
+
         $tarefas = Tarefa::with('condominio', 'prestador')->get();
 
-        return Inertia::render('Terefas/Index', ['tarefas' => $tarefas]);
+        return Inertia::render('Tarefas/Index', ['tarefas' => $tarefas]);
+
     }
 
     public function create()
     {
         return Inertia::render('Tarefas/Create', [
             'condominios' => Condominio::all(),
-            'prestadores' => Prestador::all()
+            'prestadores' => Prestador::all(),
         ]);
     }
 

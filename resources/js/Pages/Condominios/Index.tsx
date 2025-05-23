@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link, useForm } from '@inertiajs/react';
 
-export default function Index({ condominios }) {
+export default function Index() {
+
+  const {} = useProps();
+
   const { delete: destroy } = useForm();
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: number) => {
     if (confirm('Tem certeza que deseja excluir este condomínio?')) {
       destroy(route('condominios.destroy', id));
     }

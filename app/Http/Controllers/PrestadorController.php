@@ -11,9 +11,9 @@ class PrestadorController extends Controller
 {
     public function index()
     {
-        $prestadores = Prestador::with('tarefas')->get();
+        $prestadores = Prestador::all();
 
-        return Inertia::render('Prestador/Index', ['tarefas' => $prestadores]);
+        return Inertia::render('Prestador/Index', ['prestadores' => $prestadores]);
     }
 
     public function create()
